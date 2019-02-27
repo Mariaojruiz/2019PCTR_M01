@@ -19,7 +19,7 @@ public class Billiards extends JFrame {
 	private Board board;
 
 	// TODO update with number of group label. See practice statement.
-	private final int N_BALL = 2;
+	private final int N_BALL = 3+3;
 	private Ball[] balls;
 
 	public Billiards() {
@@ -53,7 +53,11 @@ public class Billiards extends JFrame {
 	}
 
 	private void initBalls() {
-		// TODO init balls
+		
+		balls = new Ball[N_BALL];
+		
+		for (int i = 0; i < balls.length ; i++){
+			balls[i] = new Ball();
 	}
 
 	private class StartListener implements ActionListener {
