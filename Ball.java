@@ -46,7 +46,7 @@ public class Ball {
 		assert Math.abs(y + 32 - Board.TOPBOARD) > Math.abs(dy) : "Ves esto porque una bola se salio por arriba";
 	}
 
-	private void reflect() {
+	public void reflect() {
 		if (Math.abs(x + IMG_TAM_X - Board.RIGHTBOARD) <  Math.abs(dx)) {
 			fi = Math.PI - fi;
 		}
