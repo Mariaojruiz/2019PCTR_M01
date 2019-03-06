@@ -4,3 +4,5 @@ Práctica del Billar
 
 
 Daniel Mellado, Diana Bringas y María Ojeda
+
+Tener en cuenta que es necesario tener la imagen de la bola para que se pueda ejecutar.
