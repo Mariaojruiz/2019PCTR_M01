@@ -15,8 +15,8 @@ public class Ball {
 		image = ii.getImage();
 		
 		//TODO Depend of image size
-		IMG_TAM_X = 32;
-		IMG_TAM_Y = 32;
+		IMG_TAM_X = ii.getIconWidth();
+		IMG_TAM_Y = ii.getIconHeight();
 
 		
 		x = Billiards.Width/4-16;
