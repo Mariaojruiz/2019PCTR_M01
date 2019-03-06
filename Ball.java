@@ -53,10 +53,10 @@ public class Ball {
 		if (Math.abs(y + IMG_TAM_Y - Board.BOTTOMBOARD) <  Math.abs(dy)) {
 			fi = - fi;
 		}
-		if (Math.abs(x - Board.LEFTBOARD) <  Math.abs(dx)) {
+		if (Math.abs(x - IMG_TAM_X - Board.LEFTBOARD) <  Math.abs(dx)) {
 			fi = Math.PI - fi;
 		}
-		if (Math.abs(y - Board.TOPBOARD) <  Math.abs(dy)) {
+		if (Math.abs(y - IMG_TAM_Y - Board.TOPBOARD) <  Math.abs(dy)) {
 			fi = - fi;
 		}
 
