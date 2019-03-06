@@ -90,6 +90,35 @@ public class Billiards extends JFrame {
 					}
 				}
 			}
+			class Actualizacion implements Runnable {
+				public void run() {
+					while (parada) {
+						//Actualizar la bola
+						board.repaint();
+						try {
+							TimeUnit.MILLISECONDS.sleep(15);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+							parada = false;
+						}
+					}
+				}
+			}
+			// Instanciamos un FixedThreadPool del tamaño de nuestro array
+			//mas 1 para el main.
+			pool = Executors.newFixedThreadPool(N_BALL + 1);
+
+			// Pintamos las bolas en el Dashboard
+			board.setBalls(balls);
+
+		//Ejecutamos todos lso hilos correspondientes a las bolas
+			for (int i = 0; i < N_BALL; i++) {
+				pool.execute(new Hilos(balls[i]));
+			}
+			//ejecutmaso el hilo que se encargara de actualizar
+			pool.execute(new Actualizacion());
+
+
 		}
 	}
 		
