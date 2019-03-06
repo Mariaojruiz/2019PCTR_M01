@@ -21,6 +21,8 @@ public class Billiards extends JFrame {
 	// TODO update with number of group label. See practice statement.
 	private final int N_BALL = 3+3;
 	private Ball[] balls;
+	private ExecutorService pool;
+	private boolean parada;
 
 	public Billiards() {
 
@@ -64,9 +66,33 @@ public class Billiards extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Code is executed when start button is pushed
+			parada = true;
+			class Hilos implements Runnable {
+				Ball ball;
 
+				private Hilos(Ball ball) {
+					this.ball = ball;
+				}
+
+				public void run() {
+					while (parada) {
+						// metodo que evita que la bola se salga por los limites
+						ball.reflect();
+						// Metodo que mueve la bola
+						ball.move();
+						try {
+							TimeUnit.MILLISECONDS.sleep(15);
+						} catch (InterruptedException e) {
+							//
+							e.printStackTrace();
+							parada = false;
+						}
+					}
+				}
+			}
 		}
 	}
+		
 
 	private class StopListener implements ActionListener {
 		@Override
