@@ -36,9 +36,14 @@ public class Ball {
 		x += dx;   
 		y += dy;
 		
-		reflect();
 		
 		//TODO Check postcondition
+		assert Math.abs(x - Board.RIGHTBOARD) > Math
+				.abs(dx) : "Ves esto porque una bola se salio por el lado de la derecha";
+		assert Math.abs(y - Board.BOTTOMBOARD) > Math.abs(dy) : "Ves esto porque una bola se salio por abajo";
+		assert Math.abs(x + 32 - Board.LEFTBOARD) > Math
+				.abs(dx) : "Ves esto porque una bola se salio por el lado de la Izquierda";
+		assert Math.abs(y + 32 - Board.TOPBOARD) > Math.abs(dy) : "Ves esto porque una bola se salio por arriba";
 	}
 
 	private void reflect() {
